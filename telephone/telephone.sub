@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH -J telephone                              # Job name
+#SBATCH -J telephone_call                              # Job name
 #SBATCH -o $HOME/demos/telephone/telephone_%j.out    # Name of stdout output file(%j expands to jobId)
 #SBATCH -e $HOME/demos/telephone/telephone_%j.err    # Name of stderr output file(%j expands to jobId)
 #SBATCH --nodes=7                                   # Total number of nodes requested
