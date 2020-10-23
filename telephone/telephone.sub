@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#SBATCH -J telephone_call                              # Job name
-#SBATCH -o $HOME/telephone_%j.out    # Name of stdout output file(%j expands to jobId)
-#SBATCH -e $HOME/telephone_%j.err    # Name of stderr output file(%j expands to jobId)
+#SBATCH -J telephone                              # Job name
+#SBATCH -o $HOME/demos/telephone/telephone_%j.out    # Name of stdout output file(%j expands to jobId)
+#SBATCH -e $HOME/demos/telephone/telephone_%j.err    # Name of stderr output file(%j expands to jobId)
 #SBATCH --nodes=7                                   # Total number of nodes requested
 #SBATCH --ntasks=7                                  # Total number of tasks to be configured for
 #SBATCH --tasks-per-node=1                          # Sets number of tasks to run on each node
@@ -15,5 +15,4 @@
 source /etc/profile.d/modules.sh
 module load openmpi-4.0.0
 
-make telephone
-mpirun -np 7 $HOME/demos/telephone/mpi-telephone.x
+mpirun -np 7 $HOME/demos/telephone/telephone "make a phone call"

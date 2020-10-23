@@ -10,6 +10,9 @@ telephone: telephone.o garble.o
 telephone.o: telephone.c garble.h
 garble.o: garble.c garble.h
 
+call: telephone
+	sbatch --requeue telephone.sub
+
 %.o: %.c
 	$(MPICC) -c $<
 
