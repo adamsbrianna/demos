@@ -59,12 +59,12 @@ int main(int argc, char **argv)
     for (i = 0; i < world_size; i++) {
         if (world_rank == i) {
             
-            MPI_Send(len + 1, 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
+            MPI_Send(buf, len + 1, MPI_CHAR, 1, 0, MPI_COMM_WORLD);
             //void* data, int count, MPI_Datatype datatype, int destination, int tag, MPI_Comm communicator
 
         } else if (world_rank == (i+1) % world_size) {
 
-            MPI_Recv(len + 1, 1, MPI_CHAR, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+            MPI_Recv(buf, len + 1, MPI_CHAR, 0, 0, MPI_COMM_WORLD, NULL);
             //void* data, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm communicator, MPI_Status* status
 
             garble(buf);
